@@ -133,7 +133,7 @@ public class Vendas extends javax.swing.JFrame {
         for(int i = 0; i< listagem.size(); i ++) {
             
             ProdutosDTO produtos = listagem.get(i);
-            //if ("Vendido".equals(produtos.getStatus())){
+            if ("Vendido".equals(produtos.getStatus())){
                         
             String[] linha = {
               Integer.toString(produtos.getId()),
@@ -145,7 +145,7 @@ public class Vendas extends javax.swing.JFrame {
             
             tabela.addRow(linha);
         }
-        //}
+        }
         return tabela;
         
     }
