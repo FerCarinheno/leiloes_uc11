@@ -136,17 +136,29 @@ public class listagemVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        String id = id_produto_venda.getText();
+        //String id = id_produto_venda.getText();
         
-        ProdutosDAO produtosdao = new ProdutosDAO();
-        
+        //ProdutosDAO produtosdao = new ProdutosDAO();
+       
         //produtosdao.venderProduto(Integer.parseInt(id));
-        listarProdutos();
+       
+        //listarProdutos();
+        ProdutosDTO produto = new ProdutosDTO();
+    produto.setId(Integer.parseInt(id_produto_venda.getText())); // Defina o ID do produto que deseja vender
+    produto.setStatus("Vendido"); // Defina o nome do produto
+    produto.setValor(550.0);
+    produto.setNome("Módulo");
+    
+    
+    // Chama o método para atualizar o produto como vendido
+    ProdutosDAO p = new ProdutosDAO();
+    p.atualizarProduto(produto);
+    
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        //vendasVIEW vendas = new vendasVIEW(); 
-        //vendas.setVisible(true);
+        Vendas vendas = new Vendas(); 
+        vendas.setVisible(true);
     }//GEN-LAST:event_btnVendasActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed

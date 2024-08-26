@@ -74,7 +74,25 @@ public class ProdutosDAO {
         return listagem;
     }
     
-    
+    public void atualizarProduto (ProdutosDTO produto){
+         
+        conn = new conectaDAO().connectDB();
+        String sql = "UPDATE PRODUTOS SET nome=?, valor=?, status=? WHERE id=?;";
+        //String sql = "UPDATE PRODUTOS SET status=? WHERE id=?;";
+        try {
+            PreparedStatement prep = conn.prepareStatement(sql);
+            prep.setString(1, produto.getNome());
+            prep.setDouble(2,produto.getValor());
+            prep.setString(3,produto.getStatus());
+            prep.setInt(4, produto.getId());
+            prep.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null,"Produto atualizado com sucesso");
+            
+        }catch (Exception e){
+            System.out.println("Erro ao cadastrar" + e.getMessage());
+        }
+    }
     
         
 }
