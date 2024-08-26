@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -40,17 +41,7 @@ public class Vendas extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("Lista Produtos Vendidos");
 
-        TabelaVendas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        TabelaVendas.setModel(montarTabela());
         jScrollPane1.setViewportView(TabelaVendas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -72,8 +63,8 @@ public class Vendas extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,7 +133,7 @@ public class Vendas extends javax.swing.JFrame {
         for(int i = 0; i< listagem.size(); i ++) {
             
             ProdutosDTO produtos = listagem.get(i);
-            if (produtos.getStatus()=="Vendido"){
+            //if ("Vendido".equals(produtos.getStatus())){
                         
             String[] linha = {
               Integer.toString(produtos.getId()),
@@ -154,11 +145,12 @@ public class Vendas extends javax.swing.JFrame {
             
             tabela.addRow(linha);
         }
-        }
+        //}
         return tabela;
+        
     }
     
-    private void listarProdutos2(){
+    /*private void listarProdutos(){
         try {
             ProdutosDAO produtosdao = new ProdutosDAO();
             
@@ -178,7 +170,8 @@ public class Vendas extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     
-    }
+    }*/
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaVendas;
